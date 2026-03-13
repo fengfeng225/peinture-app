@@ -1,6 +1,6 @@
 
 import React, { useMemo, useEffect, useState } from 'react';
-import { X, Save, Settings2, Server, Cpu, MessageSquareText, Film, HardDrive, Database } from 'lucide-react';
+import { X, Save, Settings2, Server, Cpu, MessageSquareText, Film, HardDrive, Database, Webhook } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { translations } from '../translations';
 import { useSettingsForm } from '../hooks/useSettingsForm';
@@ -11,6 +11,7 @@ import { ModelsTab } from './settings/ModelsTab';
 import { PromptTab } from './settings/PromptTab';
 import { LiveTab } from './settings/LiveTab';
 import { StorageTab } from './settings/StorageTab';
+import { ApiTab } from './settings/ApiTab';
 
 interface SettingsModalProps {
     isOpen: boolean;
@@ -48,7 +49,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
             { id: 'provider', icon: Server, label: t.tab_provider },
             { id: 'models', icon: Cpu, label: t.model },
             { id: 'prompt', icon: MessageSquareText, label: t.tab_prompt },
-            { id: 'live', icon: Film, label: t.tab_live }
+            { id: 'live', icon: Film, label: t.tab_live },
+            { id: 'api', icon: Webhook, label: t.tab_api }
         ];
         if (form.storageType === 's3') base.push({ id: 's3', icon: HardDrive, label: t.tab_storage });
         else if (form.storageType === 'webdav') base.push({ id: 'webdav', icon: Database, label: t.tab_webdav });
@@ -152,11 +154,15 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                     )}
 
                                     {tab.id === 'live' && (
-                                        <LiveTab 
+                                        <LiveTab
                                             provider={provider}
                                             videoSettings={form.videoSettings}
                                             setVideoSettings={form.setVideoSettings}
                                         />
+                                    )}
+
+                                    {tab.id === 'api' && (
+                                        <ApiTab />
                                     )}
 
                                     {(tab.id === 's3' || tab.id === 'webdav') && (
