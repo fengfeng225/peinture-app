@@ -172,8 +172,8 @@ export interface ResolvedModel {
 export function resolveModel(modelId: string): ResolvedModel | null {
   if (!modelId) modelId = 'z-image-turbo';
 
-  // Priority: gitee > a4f > modelscope > huggingface
-  const providerOrder: ProviderId[] = ['gitee', 'a4f', 'modelscope', 'huggingface'];
+  // Priority: huggingface > gitee > a4f > modelscope
+  const providerOrder: ProviderId[] = ['huggingface', 'gitee', 'a4f', 'modelscope'];
 
   for (const pid of providerOrder) {
     const config = PROVIDER_CONFIGS[pid];
