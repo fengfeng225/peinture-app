@@ -50,6 +50,7 @@ const PROVIDER_CONFIGS: Record<ProviderId, ProviderConfig> = {
       'qwen-image': 'qwen-image',
       'ovis-image': 'ovis-image',
       'flux-1-schnell': 'flux-1-schnell',
+      'qwen-image-edit': 'qwen-image-edit',
     },
     gradioModels: {
       'z-image-turbo': {
@@ -111,6 +112,7 @@ const PROVIDER_CONFIGS: Record<ProviderId, ProviderConfig> = {
       'flux-1-schnell': 'flux-1-schnell',
       'flux-1-krea': 'FLUX_1-Krea-dev',
       'flux-1': 'FLUX.1-dev',
+      'qwen-image-edit': 'Qwen-Image-Edit',
     },
   },
   modelscope: {
@@ -123,6 +125,7 @@ const PROVIDER_CONFIGS: Record<ProviderId, ProviderConfig> = {
       'flux-2': 'black-forest-labs/FLUX.2-dev',
       'flux-1-krea': 'black-forest-labs/FLUX.1-Krea-dev',
       'flux-1': 'MusePublic/489_ckpt_FLUX_1',
+      'qwen-image-edit': 'Qwen/Qwen-Image-Edit-2509',
     },
   },
   a4f: {
@@ -147,6 +150,7 @@ const MODEL_LABELS: Record<string, string> = {
   'flux-1-schnell': 'FLUX.1 Schnell',
   'flux-1-krea': 'FLUX.1 Krea',
   'flux-1': 'FLUX.1',
+  'qwen-image-edit': 'Qwen Image Edit',
   'imagen-4': 'Google Imagen 4',
   'imagen-3.5': 'Google Imagen 3.5',
 };
